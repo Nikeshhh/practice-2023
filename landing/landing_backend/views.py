@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from .models import TestModel
 
-# Create your views here.
+
+def test_view(request):
+    content = TestModel.objects.all()
+    return HttpResponse(content=content)
