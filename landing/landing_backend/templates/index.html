@@ -1165,7 +1165,7 @@
                 <div class="Social-networks__wrapper">
                     <ul class="Social-networks__list">
                         <li class="Social-networks__item">
-                            <a class="Social-networks__link" href="#" target="_blank">
+                            <a class="Social-networks__link" href="Skype:{{ skype }}?chat" target="_blank">
 					<span class="Social-networks__link-icon Icon Icon--l Icon--color-e ">
 	<div class="Icon__content">
 		<svg class="Icon__svg">
@@ -1177,11 +1177,11 @@
                             </a>
                         </li>
                         <li class="Social-networks__item">
-                            <a class="Social-networks__link" href="#" target="_blank">
+                            <a class="Social-networks__link" href="https://wa.me/{{ whatsapp }}" target="_blank">
 					<span class="Social-networks__link-icon Icon Icon--l Icon--color-e ">
 	<div class="Icon__content">
 		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:hrefh="#watsapp"></use>
+			<use class="Icon__svg-use" xlink:hrefh="#whatsapp"></use>
 		</svg>
 	</div>
 </span>
@@ -1189,7 +1189,7 @@
                             </a>
                         </li>
                         <li class="Social-networks__item">
-                            <a class="Social-networks__link" href="#" target="_blank">
+                            <a class="Social-networks__link" href="https://t.me/{{ telegram }}" target="_blank">
 					<span class="Social-networks__link-icon Icon Icon--l Icon--color-e ">
 	<div class="Icon__content">
 		<svg class="Icon__svg">
@@ -1201,7 +1201,7 @@
                             </a>
                         </li>
                     </ul>
-                    <h3 class="Social-networks__title">ООО «Команда Ф5» <br> ИНН <a>2130183567</a></h3>
+                    <h3 class="Social-networks__title">{{ company_name }} <br> ИНН <a>{{ inn }}</a></h3>
                 </div>
             </div>
 
@@ -1219,7 +1219,7 @@
 
                         <div class="Feedback__number">
                             <a class="Feedback__number-link Link Link--l Link--color-e " target="_blank"
-                               href="tel:+78002009397">8 (800) 200-93-97</a>
+                               href="tel:{{ phone_number }}">{{ phone_number }}</a>
 
                         </div>
                     </div>
@@ -1232,7 +1232,7 @@
 	</div>
 </span>
 
-                        <h3 class="Feedback__address-title">Россия, г. Чебоксары, ул. Карла Маркса, 52/9</h3>
+                        <h3 class="Feedback__address-title">{{ address }}</h3>
                     </div>
                     <div class="Feedback__block-mail">
 			<span class="Feedback__block-mail-icon Icon Icon--s Icon--color-e ">
@@ -1245,7 +1245,7 @@
 
                         <div class="Feedback__mail">
                             <a class="Feedback__mail-link Link Link--s Link--color-e " target="_blank"
-                               href="mailto:hello@proplan.su">hello@proplan.su</a>
+                               href="mailto:{{ email }}">{{ email }}</a>
 
                         </div>
                     </div>
