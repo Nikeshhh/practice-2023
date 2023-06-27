@@ -38,4 +38,10 @@ class ServiceTypes(models.Model):
         return self.name
 
 
+class Possibilities(models.Model):
+    image = models.ImageField(verbose_name='Изображение')
+    header = models.CharField(max_length=100, verbose_name='Заголовок')
+    description = models.TextField(verbose_name='Описание')
+
+
 

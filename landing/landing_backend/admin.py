@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import TestModel, CompanyContacts, Services, ServiceTypes
+from .models import TestModel, CompanyContacts, Services, ServiceTypes, Possibilities
 
 admin.site.register(Services)
 admin.site.register(ServiceTypes)
+admin.site.register(Possibilities)
 
 
 class CompanyContactsAdmin(admin.ModelAdmin):
