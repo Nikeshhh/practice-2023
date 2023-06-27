@@ -20,4 +20,6 @@ def index(request):
         'email': contacts.email,
         'possibilities': Possibilities.objects.all(),
     }
+    for item in context['possibilities']:
+        print(item)
     return render(request, template_name='index.html', context=context)

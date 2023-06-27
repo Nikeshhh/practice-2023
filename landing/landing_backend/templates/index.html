@@ -169,189 +169,35 @@
                                 </button>
                             </div>
                             {% endfor %}
-
-                            <div class="Tabs__item" data-identification-tab="3" data-index-tab="2">
-                                <button class="Button Button--line Button--theme-m Button--theme-m-w">
-                                    <span class="Button__text">Программма оператора</span>
-                                </button>
-                            </div>
-
-                            <div class="Tabs__item" data-identification-tab="3" data-index-tab="3">
-                                <button class="Button Button--line Button--theme-m Button--theme-m-w">
-                                    <span class="Button__text">Управление из браузера</span>
-                                </button>
-                            </div>
-
-                            <div class="Tabs__item" data-identification-tab="3" data-index-tab="4">
-                                <button class="Button Button--line Button--theme-m Button--theme-m-w">
-                                    <span class="Button__text">Облачная или коробочная</span>
-                                </button>
-                            </div>
-
-                            <div class="Tabs__item" data-identification-tab="3" data-index-tab="5">
-                                <button class="Button Button--line Button--theme-m Button--theme-m-w">
-                                    <span class="Button__text">Интеграции</span>
-                                </button>
-                            </div>
                         </div>
 
                         <div class="Tabs__blocks">
-                            <div class="Tabs__block Tabs__block--active" data-identification-tab="3" data-index-tab="1">
+                            {% for possibility in possibilities %}
+                            <div class="Tabs__block Tabs__block--active" data-identification-tab="3" data-index-tab="{{ forloop.counter }}">
                                 <div class="block-tabs">
                                     <div class="block-tabs__wrapper">
                                         <div class="block-tabs__img" data-aos="fade-right">
                                             <div class="block-tabs__logo-picture Picture">
                                                 <picture class="Picture__block-img">
                                                     <source class="Picture__img" type="image/webp"
-                                                            srcset="{% static 'landing_backend/img/block-tabs-1.webp' %}" alt="block-tabs-1.jpg"
-                                                            data-fancybox href="{% static 'landing_backend/img/block-tabs-1.webp' %}"/>
-                                                    <img class="Picture__img" src="{% static 'landing_backend/img/block-tabs-1.jpg' %}"
-                                                         alt="block-tabs-1.jpg" data-fancybox
-                                                         href="{% static 'landing_backend/img/block-tabs-1.jpg' %}"/>
+                                                            srcset="{{ possibility.image.url }}" alt=""
+                                                            data-fancybox href="{{ possibility.image.url }}"/>
+                                                    <img class="Picture__img" src="{{ possibility.image.url }}"
+                                                         alt="" data-fancybox
+                                                         href="{{ possibility.image.url }}"/>
                                                 </picture>
                                             </div>
                                         </div>
                                         <div class="block-tabs__content" data-aos="fade-left">
-                                            <h2 class="block-tabs__content-title">Головная программа</h2>
+                                            <h2 class="block-tabs__content-title">{{ possibility.header }}</h2>
                                             <p class="block-tabs__content-text">
-                                                Головная программа предназначена для формирования заявок, работ
-                                                и отчетности. <br/>
-                                                Этот модуль АСУ БатонИТ» имеет панель управления, через которую
-                                                ответственный сотрудник (диспетчер) может создавать заявки для заводов,
-                                                вести базу сотрудников, контрагентов
-                                                и транспорта. Диспетчер может в онлайн отслеживать процесс выполнения
-                                                назначенных им работ.<br/>
-                                                Функция точной настройки рецептов позволяет обеспечить выпуск
-                                                качественного материала на каждом заводе.
+                                                {{ possibility.description|safe }}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="Tabs__block Tabs__block--not-active" data-identification-tab="3"
-                                 data-index-tab="2">
-                                <div class="block-tabs">
-                                    <div class="block-tabs__wrapper">
-                                        <div class="block-tabs__img">
-                                            <div class="block-tabs__logo-picture Picture">
-                                                <picture class="Picture__block-img">
-                                                    <source class="Picture__img" type="image/webp"
-                                                            srcset="{% static 'landing_backend/img/block-tabs-2.webp' %}" alt="block-tabs-2.jpg"
-                                                            data-fancybox href="{% static 'landing_backend/img/block-tabs-2.webp' %}"/>
-                                                    <img class="Picture__img" src="{% static 'landing_backend/img/block-tabs-2.jpg' %}"
-                                                         alt="block-tabs-2.jpg" data-fancybox
-                                                         href="{% static 'landing_backend/img/block-tabs-2.jpg' %}"/>
-                                                </picture>
-                                            </div>
-                                        </div>
-                                        <div class="block-tabs__content">
-                                            <h2 class="block-tabs__content-title">Программа оператора</h2>
-                                            <p class="block-tabs__content-text">
-                                                Программа оператора, работает непосредственно на заводе с контролером
-                                                РБУ и отвечает за отгрузку.<br/>
-                                                Оператор — сотрудник, непосредственно отвечающий за отгрузку готовой
-                                                продукции.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="Tabs__block Tabs__block--not-active" data-identification-tab="3"
-                                 data-index-tab="3">
-                                <div class="block-tabs">
-                                    <div class="block-tabs__wrapper">
-                                        <div class="block-tabs__img">
-                                            <div class="block-tabs__logo-picture Picture">
-                                                <picture class="Picture__block-img">
-                                                    <source class="Picture__img" type="image/webp"
-                                                            srcset="{% static 'landing_backend/img/block-tabs-3.webp' %}" alt="block-tabs-3.jpg"
-                                                            data-fancybox href="{% static 'landing_backend/img/block-tabs-3.webp' %}"/>
-                                                    <img class="Picture__img" src="{% static 'landing_backend/img/block-tabs-3.jpg' %}"
-                                                         alt="block-tabs-3.jpg" data-fancybox
-                                                         href="{% static 'landing_backend/img/block-tabs-3.jpg' %}"/>
-                                                </picture>
-                                            </div>
-                                        </div>
-                                        <div class="block-tabs__content">
-                                            <h2 class="block-tabs__content-title">Управление из браузера</h2>
-                                            <p class="block-tabs__content-text">
-                                                Управление АСУ ТП осуществляется посредством любого браузера с любого
-                                                персонального компьютера завода, в случае с облачным решением управление
-                                                возможно осуществлять и с мобильных
-                                                устройств.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="Tabs__block Tabs__block--not-active" data-identification-tab="3"
-                                 data-index-tab="4">
-                                <div class="block-tabs">
-                                    <div class="block-tabs__wrapper">
-                                        <div class="block-tabs__img">
-                                            <div class="block-tabs__logo-picture Picture">
-                                                <picture class="Picture__block-img">
-                                                    <source class="Picture__img" type="image/webp"
-                                                            srcset="{% static 'landing_backend/img/block-tabs-4.webp' %}" alt="block-tabs-4.jpg"
-                                                            data-fancybox href="{% static 'landing_backend/img/block-tabs-4.webp' %}"/>
-                                                    <img class="Picture__img" src="{% static 'landing_backend/img/block-tabs-4.jpg' %}"
-                                                         alt="block-tabs-4.jpg" data-fancybox
-                                                         href="{% static 'landing_backend/img/block-tabs-4.jpg' %}"/>
-                                                </picture>
-                                            </div>
-                                        </div>
-                                        <div class="block-tabs__content">
-                                            <h2 class="block-tabs__content-title">Облачная или коробочная версия</h2>
-                                            <ul class="block-tabs__content-list">
-                                                Развертывание АСУ возможно в нескольких вариантах:
-                                                <li class="block-tabs__content-item">Локальная АСУ (коробочная версия)
-                                                </li>
-                                                <li class="block-tabs__content-item">АСУ с применение облачного
-                                                    решения
-                                                </li>
-                                            </ul>
-                                            <p class="block-tabs__content-text">
-                                                Система может строиться как в локальной сети так и с использованием
-                                                облачного сервиса, что в разы уменьшает стоимость системы и затраты
-                                                на покупку и содержания серверного оборудования.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="Tabs__block Tabs__block--not-active" data-identification-tab="3"
-                                 data-index-tab="5">
-                                <div class="block-tabs">
-                                    <div class="block-tabs__wrapper">
-                                        <div class="block-tabs__img">
-                                            <div class="block-tabs__logo-picture Picture">
-                                                <picture class="Picture__block-img">
-                                                    <source class="Picture__img" type="image/webp"
-                                                            srcset="{% static 'landing_backend/img/block-tabs-5.webp' %}" alt="block-tabs-5.jpg"
-                                                            data-fancybox href="{% static 'landing_backend/img/block-tabs-5.webp' %}"/>
-                                                    <img class="Picture__img" src="{% static 'landing_backend/img/block-tabs-5.jpg' %}"
-                                                         alt="block-tabs-5.jpg" data-fancybox
-                                                         href="{% static 'landing_backend/img/block-tabs-5.jpg' %}"/>
-                                                </picture>
-                                            </div>
-                                        </div>
-                                        <div class="block-tabs__content">
-                                            <h2 class="block-tabs__content-title">Интеграции</h2>
-                                            <p class="block-tabs__content-text">
-                                                Программа может работать практически с любыми контроллерами РБУ, который
-                                                имеет возможность подключения по технологии Ethernet и имеют открытый
-                                                код для их программирования. <br/>
-                                                Программа имеет обширный настраиваемый функционал отчетности, а также
-                                                интеграцию с бухгалтерской системой 1С: Предприятие
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
