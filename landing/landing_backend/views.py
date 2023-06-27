@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import TestModel, CompanyContacts
+from .models import TestModel, CompanyContacts, Possibilities
 
 
 def test_view(request):
@@ -18,5 +18,6 @@ def index(request):
         'phone_number': contacts.phone_number,
         'address': contacts.address,
         'email': contacts.email,
+        'possibilities': Possibilities.objects.all(),
     }
     return render(request, template_name='index.html', context=context)

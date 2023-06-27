@@ -162,11 +162,13 @@
                 <div class="Tabs">
                     <div class="Tabs__wrapper">
                         <div class="Tabs__btns">
-                            <div class="Tabs__item Tabs__item--active" data-identification-tab="3" data-index-tab="1">
+                            {% for possibility in possibilities %}
+                            <div class="Tabs__item Tabs__item--active" data-identification-tab="3" data-index-tab="{{ forloop.counter }}">
                                 <button class="Button Button--line Button--theme-m Button--theme-m-w">
-                                    <span class="Button__text">Головная программа</span>
+                                    <span class="Button__text">{{ possibility.header }}</span>
                                 </button>
                             </div>
+                            {% endfor %}
 
                             <div class="Tabs__item" data-identification-tab="3" data-index-tab="2">
                                 <button class="Button Button--line Button--theme-m Button--theme-m-w">

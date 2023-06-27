@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class TestModel(models.Model):
@@ -41,7 +42,10 @@ class ServiceTypes(models.Model):
 class Possibilities(models.Model):
     image = models.ImageField(verbose_name='Изображение')
     header = models.CharField(max_length=100, verbose_name='Заголовок')
-    description = models.TextField(verbose_name='Описание')
+    description = RichTextUploadingField(verbose_name='Описание')
+
+    def __str__(self):
+        return self.header
 
 
 

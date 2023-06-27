@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'landing_backend',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,8 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# CKEditor path
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
