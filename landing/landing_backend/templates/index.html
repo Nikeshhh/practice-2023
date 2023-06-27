@@ -163,7 +163,9 @@
                     <div class="Tabs__wrapper">
                         <div class="Tabs__btns">
                             {% for possibility in possibilities %}
-                            <div class="Tabs__item Tabs__item--active" data-identification-tab="3" data-index-tab="{{ forloop.counter }}">
+                            <div class="Tabs__item {% if forloop.counter == 1 %}
+                            Tabs__item--active
+                            {% endif %}" data-identification-tab="3" data-index-tab="{{ forloop.counter }}">
                                 <button class="Button Button--line Button--theme-m Button--theme-m-w">
                                     <span class="Button__text">{{ possibility.header }}</span>
                                 </button>
@@ -173,10 +175,15 @@
 
                         <div class="Tabs__blocks">
                             {% for possibility in possibilities %}
-                            <div class="Tabs__block Tabs__block--active" data-identification-tab="3" data-index-tab="{{ forloop.counter }}">
+                            <div class="Tabs__block Tabs__block--
+                            {% if forloop.counter == 1 %}
+                            active
+                            {% else %}
+                            not-active
+                            {% endif %}" data-identification-tab="3" data-index-tab="{{ forloop.counter }}">
                                 <div class="block-tabs">
                                     <div class="block-tabs__wrapper">
-                                        <div class="block-tabs__img" data-aos="fade-right">
+                                        <div class="block-tabs__img" data-aos="{% if forloop.counter == 1 %}fade-right{% endif %}">
                                             <div class="block-tabs__logo-picture Picture">
                                                 <picture class="Picture__block-img">
                                                     <source class="Picture__img" type="image/webp"
@@ -188,10 +195,10 @@
                                                 </picture>
                                             </div>
                                         </div>
-                                        <div class="block-tabs__content" data-aos="fade-left">
+                                        <div class="block-tabs__content" data-aos="{% if forloop.counter == 1 %}fade-left{% endif %}">
                                             <h2 class="block-tabs__content-title">{{ possibility.header }}</h2>
                                             <p class="block-tabs__content-text">
-                                                {{ possibility.description|safe }}
+                                                    {{ possibility.description|safe }}
                                             </p>
                                         </div>
                                     </div>

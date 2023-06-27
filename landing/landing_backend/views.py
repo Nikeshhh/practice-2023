@@ -21,5 +21,5 @@ def index(request):
         'possibilities': Possibilities.objects.all(),
     }
     for item in context['possibilities']:
-        print(item)
+        print(item.description)
     return render(request, template_name='index.html', context=context)
