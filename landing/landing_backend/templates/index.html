@@ -180,7 +180,7 @@
                             active
                             {% else %}
                             not-active
-                            {% endif %}" data-identification-tab="3" data-index-tab="{{ forloop.counter }}">
+                            {% endif %}" data-identification-tab="3" data-index-tab="{{ forloop.counter }}"style="display: {% if forloop.counter == 1 %}block{% else %}none{% endif %};">
                                 <div class="block-tabs">
                                     <div class="block-tabs__wrapper">
                                         <div class="block-tabs__img" data-aos="{% if forloop.counter == 1 %}fade-right{% endif %}">

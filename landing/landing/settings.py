@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ SECRET_KEY = 'django-insecure-f=+exek5jky^qdu&v_!%nswn7$oard+u-3j%_7-t%i&jogt=r-
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -73,7 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'landing.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -83,7 +80,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -103,7 +99,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -114,7 +109,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -141,19 +135,37 @@ CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery
 
 CKEDITOR_CONFIGS = {
     "default": {
-        "removePlugins": "stylesheetparser",
+        "removePlugins": "stylesheetparser, list",
         'allowedContent': True,
+        'autoParagraph': False,
+        'contentsCss': [
+            os.path.join(BASE_DIR, 'landing_backend/static/landing_backend/css/libs-styles.min.css'),
+            os.path.join(BASE_DIR, 'landing_backend/static/landing_backend/css/main.min.css')
+        ],
+        'stylesSet': [
+            {'name': 'List Style', 'element': 'ul', 'attributes': {'class': 'block-tabs__content-list'}},
+            {'name': 'Item Style', 'element': 'li', 'attributes': {'class': 'block-tabs__content-item'}},
+            {'name': 'Text Style', 'element': 'p', 'attributes': {'class': 'block-tabs__content-text'}}
+        ],
+        'format_tags': 'p;h1;h2;h3;pre;my-style',
+        'format_my-style': [
+            {'element': 'ul', 'attributes': {'class': 'block-tabs__content-list'}},
+            {'element': 'li', 'attributes': {'class': 'block-tabs__content-item'}},
+        ],
         'toolbar_Full': [
-        ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ],
-        ['Image', 'Flash', 'Table', 'HorizontalRule'],
-        ['TextColor', 'BGColor'],
-        ['Smiley', 'sourcearea', 'SpecialChar'],
-        [ 'Link', 'Unlink', 'Anchor'],
-        [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ],
-        [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates'],
-        [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'],
-        [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'],
-        [ 'Maximize', 'ShowBlocks']
-    ],
+            ['Styles', 'FormatTags', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-',
+             'RemoveFormat'],
+            ['Image', 'Flash', 'Table', 'HorizontalRule'],
+            ['TextColor', 'BGColor'],
+            ['Smiley', 'sourcearea', 'SpecialChar'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+             'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language'],
+            ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates'],
+            ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'],
+            ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'],
+            ['Maximize', 'ShowBlocks'],
+
+        ],
     }
 }
