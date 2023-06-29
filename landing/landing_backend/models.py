@@ -1,5 +1,9 @@
+import os
+
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+
+from landing import settings
 
 
 class TestModel(models.Model):
@@ -46,6 +50,10 @@ class Possibilities(models.Model):
 
     def __str__(self):
         return self.header
+
+    def delete(self, *args, **kwargs):
+        os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
+        super().delete(*args, **kwargs)
 
 
 

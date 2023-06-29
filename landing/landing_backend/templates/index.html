@@ -67,7 +67,7 @@
                         <div class="Nav__mobile-feedback Feedback Feedback--phone-header">
                             <div class="Feedback__wrapper">
                                 <a class="Feedback__phone-link Link Link--xxl Link--color-a-decor " target="_blank"
-                                   href="tel:+78002009397">8(800)200-93-97</a>
+                                   href="tel:{{ phone_number }}">{{ phone_number }}</a>
 
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                             <div class="Social-networks__wrapper">
                                 <ul class="Social-networks__list">
                                     <li class="Social-networks__item">
-                                        <a class="Social-networks__link" href="#" target="_blank">
+                                        <a class="Social-networks__link" href="Skype:{{ skype }}?chat" target="_blank">
 					<span class="Social-networks__link-icon Icon Icon--m Icon--color-b ">
 	<div class="Icon__content">
 		<svg class="Icon__svg">
@@ -88,7 +88,7 @@
                                         </a>
                                     </li>
                                     <li class="Social-networks__item">
-                                        <a class="Social-networks__link" href="#" target="_blank">
+                                        <a class="Social-networks__link" href="https://wa.me/{{ whatsapp }}" target="_blank">
 					<span class="Social-networks__link-icon Icon Icon--m Icon--color-b ">
 	<div class="Icon__content">
 		<svg class="Icon__svg">
@@ -100,7 +100,7 @@
                                         </a>
                                     </li>
                                     <li class="Social-networks__item">
-                                        <a class="Social-networks__link" href="#" target="_blank">
+                                        <a class="Social-networks__link" href="https://t.me/{{ telegram }}" target="_blank">
 					<span class="Social-networks__link-icon Icon Icon--m Icon--color-b ">
 	<div class="Icon__content">
 		<svg class="Icon__svg">
@@ -197,9 +197,9 @@
                                         </div>
                                         <div class="block-tabs__content" data-aos="{% if forloop.counter == 1 %}fade-left{% endif %}">
                                             <h2 class="block-tabs__content-title">{{ possibility.header }}</h2>
-                                            <p class="block-tabs__content-text">
+<!--                                            <p class="block-tabs__content-text">-->
                                                     {{ possibility.description|safe }}
-                                            </p>
+<!--                                            </p>-->
                                         </div>
                                     </div>
                                 </div>
