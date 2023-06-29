@@ -44,12 +44,23 @@ class ServiceTypes(models.Model):
 
 
 class Possibilities(models.Model):
-    image = models.ImageField(verbose_name='Изображение')
+    image = models.ImageField(verbose_name='Изображение', upload_to='images/possibilities')
     header = models.CharField(max_length=100, verbose_name='Заголовок')
     description = RichTextUploadingField(verbose_name='Описание')
 
     def __str__(self):
         return self.header
+
+    def delete(self, *args, **kwargs):
+        os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
+        super().delete(*args, **kwargs)
+
+
+class Partners(models.Model):
+    image = models.ImageField(verbose_name='Партнер', upload_to='images/partners')
+
+    def __str__(self):
+        return self.image.name[16:]
 
     def delete(self, *args, **kwargs):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
