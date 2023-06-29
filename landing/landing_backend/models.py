@@ -4,6 +4,7 @@ from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 
 from landing import settings
+from landing_backend.validators import build_image_size_validator
 
 
 class TestModel(models.Model):
@@ -44,7 +45,9 @@ class ServiceTypes(models.Model):
 
 
 class Possibilities(models.Model):
-    image = models.ImageField(verbose_name='Изображение', upload_to='images/possibilities')
+    image = models.ImageField(verbose_name='Изображение',
+                              upload_to='images/possibilities',
+                              validators=[build_image_size_validator(592, 360)])
     header = models.CharField(max_length=100, verbose_name='Заголовок')
     description = RichTextUploadingField(verbose_name='Описание')
 
@@ -57,7 +60,9 @@ class Possibilities(models.Model):
 
 
 class Partners(models.Model):
-    image = models.ImageField(verbose_name='Партнер', upload_to='images/partners')
+    image = models.ImageField(verbose_name='Логотип партнера',
+                              upload_to='images/partners',
+                              validators=[build_image_size_validator(286, 100)])
 
     def __str__(self):
         return self.image.name[16:]

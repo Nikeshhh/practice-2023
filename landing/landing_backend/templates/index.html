@@ -931,60 +931,17 @@
                     партнёры</h2>
                 <div class="swiper-container partners__swiper-container">
                     <div class="swiper-wrapper partners__wrapper-slide">
+                        {% for logo in partners %}
                         <div class="swiper-slide partners__slide">
                             <div class="partners__slide-picture  Picture">
                                 <picture class="Picture__block-img">
-                                    <source class="Picture__img" srcset="{% static 'landing_backend/img/partners-1.webp' %}" alt="partners-1.png"
+                                    <source class="Picture__img" srcset="{{ logo.image.url }}" alt="{{ logo.image.url }}"
                                             type="image/webp"/>
-                                    <img class="Picture__img" src="{% static 'landing_backend/img/partners-1.png' %}" alt="partners-1.png"/>
+                                    <img class="Picture__img" src="{{ logo.image.url }}" alt="{{ logo.image.url }}"/>
                                 </picture>
                             </div>
                         </div>
-                        <div class="swiper-slide partners__slide">
-                            <div class="partners__slide-picture  Picture">
-                                <picture class="Picture__block-img">
-                                    <source class="Picture__img" srcset="{% static 'landing_backend/img/partners-2.webp' %}" alt="partners-2.png"
-                                            type="image/webp"/>
-                                    <img class="Picture__img" src="{% static 'landing_backend/img/partners-2.png' %}" alt="partners-2.png"/>
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="swiper-slide partners__slide">
-                            <div class="partners__slide-picture  Picture">
-                                <picture class="Picture__block-img">
-                                    <source class="Picture__img" srcset="{% static 'landing_backend/img/partners-1.webp' %}" alt="partners-1.png"
-                                            type="image/webp"/>
-                                    <img class="Picture__img" src="{% static 'landing_backend/img/partners-1.png' %}" alt="partners-1.png"/>
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="swiper-slide partners__slide">
-                            <div class="partners__slide-picture  Picture">
-                                <picture class="Picture__block-img">
-                                    <source class="Picture__img" srcset="{% static 'landing_backend/img/partners-2.webp' %}" alt="partners-2.png"
-                                            type="image/webp"/>
-                                    <img class="Picture__img" src="{% static 'landing_backend/img/partners-2.png' %}" alt="partners-2.png"/>
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="swiper-slide partners__slide">
-                            <div class="partners__slide-picture  Picture">
-                                <picture class="Picture__block-img">
-                                    <source class="Picture__img" srcset="{% static 'landing_backend/img/partners-1.webp' %}" alt="partners-1.png"
-                                            type="image/webp"/>
-                                    <img class="Picture__img" src="{% static 'landing_backend/img/partners-1.png' %}" alt="partners-1.png"/>
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="swiper-slide partners__slide">
-                            <div class="partners__slide-picture  Picture">
-                                <picture class="Picture__block-img">
-                                    <source class="Picture__img" srcset="{% static 'landing_backend/img/partners-2.webp' %}" alt="partners-2.png"
-                                            type="image/webp"/>
-                                    <img class="Picture__img" src="{% static 'landing_backend/img/partners-2.png' %}" alt="partners-2.png"/>
-                                </picture>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
 
                     <div class="swiper-pagination"></div>

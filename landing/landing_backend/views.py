@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import TestModel, CompanyContacts, Possibilities
+from .models import TestModel, CompanyContacts, Possibilities, Partners
 
 
 def test_view(request):
@@ -19,5 +19,8 @@ def index(request):
         'address': contacts.address,
         'email': contacts.email,
         'possibilities': Possibilities.objects.all(),
+        'partners': Partners.objects.all(),
     }
+    for item in context['possibilities']:
+        print(item.image.width, item.image.height)
     return render(request, template_name='index.html', context=context)
