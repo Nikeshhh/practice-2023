@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import CompanyContacts, Services, ServiceTypes, Possibilities, Partners
+from .models import CompanyContacts, Services, ServiceTypes, Possibilities, Partners, WriteUs
 
 admin.site.register(Services)
 admin.site.register(ServiceTypes)
 admin.site.register(Possibilities)
 admin.site.register(Partners)
+admin.site.register(WriteUs)
 
 
 class CompanyContactsAdmin(admin.ModelAdmin):

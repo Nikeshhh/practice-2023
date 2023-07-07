@@ -20,21 +20,33 @@ class CompanyContacts(models.Model):
     def __str__(self):
         return self.company_name
 
+    class Meta:
+        verbose_name = 'Контакт'
+        verbose_name_plural = 'Контакты'
+
 
 class Services(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, verbose_name='Наименование услуги')
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Услуга'
+        verbose_name_plural = 'Услуги'
 
 
 class ServiceTypes(models.Model):
-    name = models.CharField(max_length=25)
-    price = models.IntegerField()
-    related_services = models.ManyToManyField(Services)
+    name = models.CharField(max_length=25, verbose_name='Наименование пакета услуг')
+    price = models.IntegerField(verbose_name='Цена')
+    related_services = models.ManyToManyField(Services, verbose_name='Список услуг')
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Набор услуг'
+        verbose_name_plural = 'Наборы услуг'
 
 
 class Possibilities(models.Model):
@@ -51,6 +63,10 @@ class Possibilities(models.Model):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
         super().delete(*args, **kwargs)
 
+    class Meta:
+        verbose_name = 'Возможность'
+        verbose_name_plural = 'Возможности'
+
 
 class Partners(models.Model):
     image = models.ImageField(verbose_name='Логотип партнера',
@@ -63,6 +79,10 @@ class Partners(models.Model):
     def delete(self, *args, **kwargs):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
         super().delete(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'Партнер'
+        verbose_name_plural = 'Партнеры'
 
 
 class WriteUs(models.Model):
