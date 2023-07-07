@@ -1,13 +1,13 @@
 import os
 
-from django.utils import timezone
-tz = timezone.get_default_timezone()
-
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 
 from landing import settings
 from landing_backend.validators import build_image_size_validator
+
+from django.utils import timezone
+tz = timezone.get_default_timezone()
 
 
 class CompanyContacts(models.Model):
@@ -50,8 +50,6 @@ class ServiceTypes(models.Model):
 
     def __str__(self):
         return self.name
-
-
 
 
 class Possibilities(models.Model):
