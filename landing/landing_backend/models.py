@@ -65,4 +65,29 @@ class Partners(models.Model):
         super().delete(*args, **kwargs)
 
 
+class WriteUs(models.Model):
+    fio = models.CharField(
+        verbose_name='ФИО',
+        max_length=100,
+    )
+    phone = models.CharField(
+        verbose_name='Номер телефона',
+        max_length=18
+    )
+    email = models.CharField(
+        verbose_name='Электронная почта',
+        max_length=50,
+        blank=True,
+        null=True
+    )
+    time_written = models.DateTimeField(
+        verbose_name='Оставлена',
+        auto_now_add=True
+    )
+
+    class Meta:
+        verbose_name = 'Заявка'
+        verbose_name_plural = 'Заявки'
+
+
 
