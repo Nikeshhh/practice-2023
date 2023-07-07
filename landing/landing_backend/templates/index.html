@@ -1077,20 +1077,19 @@
             </div>
 
             <div class="popup-write-us__block-input-form">
-                <form class="popup-write-us__form js-form-validation" action="/url1.php" novalidate="novalidate"
-                      onsubmit="formApi(this); return false">
+                <form class="popup-write-us__form" method="post" action="{% url 'write-us' %}">
+                    {% csrf_token %}
                     <div class="popup-write-us__block-inputs">
                         <div class="Input input">
-                            <input class="Input__inp" type="text" name="fio" placeholder="ФИО" required=""/>
-                            <span class="input-validation__message input-validation__message-mod"></span>
+                            {{ write_us_form.fio }}
+                            <span class="input-validation__message input-validation__message-mod">{{ write_us_form.errors.fio }}</span>
                         </div>
                         <div class="Input input">
-                            <input class="Input__inp mask-phone-js" type="tel" name="tel" placeholder="Телефон"
-                                   required=""/>
-                            <span class="input-validation__message input-validation__message-mod"></span>
+                            {{ write_us_form.tel }}
+                            <span class="input-validation__message input-validation__message-mod">{{ write_us_form.errors.tel }}</span>
                         </div>
                         <div class="Input input">
-                            <input class="Input__inp" type="email" name="mail" placeholder="E-mail"/>
+                            {{ write_us_form.email }}
                         </div>
                     </div>
                     <div class="Action-button">

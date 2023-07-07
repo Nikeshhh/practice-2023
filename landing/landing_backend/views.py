@@ -1,15 +1,13 @@
 from django.shortcuts import render, HttpResponse
-from .models import TestModel, CompanyContacts, Possibilities, Partners
 
-
-def test_view(request):
-    content = TestModel.objects.all()
-    return HttpResponse(content=content)
+from .forms import WriteUsForm
+from .models import CompanyContacts, Possibilities, Partners
 
 
 def index(request):
     contacts = CompanyContacts.objects.get(pk=1)
     context = {
+        'write_us_form': WriteUsForm(),
         'company_name': contacts.company_name,
         'inn': contacts.inn,
         'skype': contacts.skype,
@@ -24,3 +22,12 @@ def index(request):
     for item in context['possibilities']:
         print(item.image.width, item.image.height)
     return render(request, template_name='index.html', context=context)
+
+
+def write_us(request, *args, **kwargs):
+    form = WriteUsForm(request.POST)
+    content = ''
+    if form.is_valid():
+        content = f'{form.cleaned_data.get("fio")}, {form.cleaned_data.get("tel")}, {form.cleaned_data.get("email")}'
+        print(content)
+    return HttpResponse(content)

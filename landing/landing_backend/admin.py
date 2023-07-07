@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import TestModel, CompanyContacts, Services, ServiceTypes, Possibilities, Partners
+from .models import CompanyContacts, Services, ServiceTypes, Possibilities, Partners
 
 admin.site.register(Services)
 admin.site.register(ServiceTypes)

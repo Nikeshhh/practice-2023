@@ -7,13 +7,6 @@ from landing import settings
 from landing_backend.validators import build_image_size_validator
 
 
-class TestModel(models.Model):
-    test_field = models.TextField(verbose_name='Тестовое поле')
-
-    def __str__(self):
-        return f'{self.test_field}'
-
-
 class CompanyContacts(models.Model):
     company_name = models.CharField(max_length=80, verbose_name='Наименование компании')
     inn = models.CharField(max_length=15, verbose_name='ИНН')
