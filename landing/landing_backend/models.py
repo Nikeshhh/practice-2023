@@ -1,5 +1,8 @@
 import os
 
+from django.utils import timezone
+tz = timezone.get_default_timezone()
+
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -17,23 +20,23 @@ class CompanyContacts(models.Model):
     address = models.CharField(max_length=100, verbose_name='Адрес компании')
     email = models.CharField(max_length=32, verbose_name='Электронная почта')
 
-    def __str__(self):
-        return self.company_name
-
     class Meta:
         verbose_name = 'Контакт'
         verbose_name_plural = 'Контакты'
+
+    def __str__(self):
+        return self.company_name
 
 
 class Services(models.Model):
     name = models.CharField(max_length=50, verbose_name='Наименование услуги')
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         verbose_name = 'Услуга'
         verbose_name_plural = 'Услуги'
+
+    def __str__(self):
+        return self.name
 
 
 class ServiceTypes(models.Model):
@@ -41,12 +44,14 @@ class ServiceTypes(models.Model):
     price = models.IntegerField(verbose_name='Цена')
     related_services = models.ManyToManyField(Services, verbose_name='Список услуг')
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         verbose_name = 'Набор услуг'
         verbose_name_plural = 'Наборы услуг'
+
+    def __str__(self):
+        return self.name
+
+
 
 
 class Possibilities(models.Model):
@@ -56,6 +61,10 @@ class Possibilities(models.Model):
     header = models.CharField(max_length=100, verbose_name='Заголовок')
     description = RichTextUploadingField(verbose_name='Описание')
 
+    class Meta:
+        verbose_name = 'Возможность'
+        verbose_name_plural = 'Возможности'
+
     def __str__(self):
         return self.header
 
@@ -63,15 +72,15 @@ class Possibilities(models.Model):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
         super().delete(*args, **kwargs)
 
-    class Meta:
-        verbose_name = 'Возможность'
-        verbose_name_plural = 'Возможности'
-
 
 class Partners(models.Model):
     image = models.ImageField(verbose_name='Логотип партнера',
                               upload_to='images/partners',
                               validators=[build_image_size_validator(286, 100)])
+
+    class Meta:
+        verbose_name = 'Партнер'
+        verbose_name_plural = 'Партнеры'
 
     def __str__(self):
         return self.image.name[16:]
@@ -79,10 +88,6 @@ class Partners(models.Model):
     def delete(self, *args, **kwargs):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
         super().delete(*args, **kwargs)
-
-    class Meta:
-        verbose_name = 'Партнер'
-        verbose_name_plural = 'Партнеры'
 
 
 class WriteUs(models.Model):
@@ -102,12 +107,15 @@ class WriteUs(models.Model):
     )
     time_written = models.DateTimeField(
         verbose_name='Оставлена',
-        auto_now_add=True
+        auto_now_add=True,
     )
 
     class Meta:
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
+
+    def __str__(self):
+        return f"Заявка от {self.phone}, создана: {self.time_written.astimezone(tz).strftime('%d.%m.%Y %H:%M')}"
 
 
 

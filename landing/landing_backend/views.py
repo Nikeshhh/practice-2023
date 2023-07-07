@@ -1,7 +1,8 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponseRedirect
+from django.urls import reverse
 
 from .forms import WriteUsForm
-from .models import CompanyContacts, Possibilities, Partners
+from .models import CompanyContacts, Possibilities, Partners, WriteUs
 
 
 def index(request):
@@ -26,8 +27,11 @@ def index(request):
 
 def write_us(request, *args, **kwargs):
     form = WriteUsForm(request.POST)
-    content = ''
     if form.is_valid():
-        content = f'{form.cleaned_data.get("fio")}, {form.cleaned_data.get("tel")}, {form.cleaned_data.get("email")}'
-        print(content)
-    return HttpResponse(content)
+        feedback = WriteUs.objects.create(
+            fio=form.cleaned_data.get('fio'),
+            phone=form.cleaned_data.get('tel'),
+            email=form.cleaned_data.get('email')
+        )
+        feedback.save()
+    return HttpResponseRedirect(reverse('index-page'))
