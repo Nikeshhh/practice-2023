@@ -615,19 +615,20 @@
             <div class="price__wrapper price__wrapper--max-width price__wrapper--container">
                 <h2 class="price__heading-title Title Title--xxxl Title--color-b" data-aos="fade-down"> Сколько стоит
                     АСУ «БетонИТ»</h2>
-
                 <ul class="price__list">
-                    <li class="price__item item-price" data-aos='fade-left' data-aos-anchor-placement="center-bottom"
+                    {% for service in services %}
+                    <li class="price__item item-price" data-aos='fade-up' data-aos-anchor-placement="center-bottom"
                         data-aos-duration='800'>
                         <div class="item-price__top">
                             <div class="item-price__top-wrap">
-                                <h3 class="item-price__title">Базовый</h3>
-                                <div class="item-price__price">499 ₽</div>
+                                <h3 class="item-price__title">{{ service.name }}</h3>
+                                <div class="item-price__price">{{ service.price }} ₽</div>
                                 <h4 class="item-price__subtitle">в месяц за пользователя</h4>
                             </div>
                         </div>
                         <div class="item-price__bottom">
                             <ul class="item-price__bottom-list">
+                                {% for service_type in service.related_services.all %}
                                 <li class="item-price__bottom-item">
 							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
 	<div class="Icon__content">
@@ -637,43 +638,10 @@
 	</div>
 </span>
 
-                                    <h3 class="item-price__text">Планировщик производства</h3>
+                                    <h3 class="item-price__text">{{ service_type.name }}</h3>
                                 </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">Канбан-доска</h3>
-                                </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">Сменно-суточные задания</h3>
-                                </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">Отчёты о работах</h3>
-                                </li>
+                                {% endfor %}
                             </ul>
-
                             <div class="item-price__bottom-btn">
                                 <a class="Button Button--m Button--color-a" href="#popup-write-us" data-fancybox-window>
                                     <span class="Button__text">Заказать онлайн-презентацию</span>
@@ -682,173 +650,11 @@
                             </div>
                         </div>
                     </li>
-
-                    <li class="price__item item-price" data-aos="fade-up"
-                        data-aos-anchor-placement="center-bottom" data-aos-duration='500'>
-                        <div class="item-price__top">
-                            <div class="item-price__top-wrap">
-                                <h3 class="item-price__title">Расширенный</h3>
-                                <div class="item-price__price">999 ₽</div>
-                                <h4 class="item-price__subtitle">в месяц за пользователя</h4>
-                            </div>
-                        </div>
-                        <div class="item-price__bottom">
-                            <ul class="item-price__bottom-list">
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">Планировщик производства</h3>
-                                </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">Канбан-доска</h3>
-                                </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">Сменно-суточные задания</h3>
-                                </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">Отчёты о работах</h3>
-                                </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">+ API для интеграций</h3>
-                                </li>
-                            </ul>
-
-                            <div class="item-price__bottom-btn">
-                                <a class="Button Button--m Button--color-a" href="#popup-write-us" data-fancybox-window>
-                                    <span class="Button__text">Заказать онлайн-презентацию</span>
-                                </a>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li class="price__item item-price" data-aos='fade-right' data-aos-anchor-placement="center-bottom"
-                        data-aos-duration='800'>
-                        <div class="item-price__top">
-                            <div class="item-price__top-wrap">
-                                <h3 class="item-price__title">Профессиональный</h3>
-                                <div class="item-price__price">1 499 ₽</div>
-                                <h4 class="item-price__subtitle">в месяц за пользователя</h4>
-                            </div>
-                        </div>
-                        <div class="item-price__bottom">
-                            <ul class="item-price__bottom-list">
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">Планировщик производства</h3>
-                                </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">Канбан-доска</h3>
-                                </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">Сменно-суточные задания</h3>
-                                </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">Отчёты о работах</h3>
-                                </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">+ API для интеграций</h3>
-                                </li>
-                                <li class="item-price__bottom-item">
-							<span class="item-price__bottom-item-icon Icon Icon--m Icon--color-a ">
-	<div class="Icon__content">
-		<svg class="Icon__svg">
-			<use class="Icon__svg-use" xlink:href="#select"></use>
-		</svg>
-	</div>
-</span>
-
-                                    <h3 class="item-price__text">+ Сложные техпроцессы</h3>
-                                </li>
-                            </ul>
-
-                            <div class="item-price__bottom-btn">
-                                <a class="Button Button--m Button--color-a" href="#popup-write-us" data-fancybox-window>
-                                    <span class="Button__text">Заказать онлайн-презентацию</span>
-                                </a>
-
-                            </div>
-                        </div>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </section>
+
 
         <section class="info" id="info" data-anchor>
             <div class="info__wrapper info__wrapper--max-width info__wrapper--container">

@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 
 from .forms import WriteUsForm
-from .models import CompanyContacts, Possibilities, Partners, WriteUs
+from .models import CompanyContacts, Possibilities, Partners, WriteUs, ServiceTypes
 
 
 def index(request):
@@ -19,6 +19,7 @@ def index(request):
         'email': contacts.email,
         'possibilities': Possibilities.objects.all(),
         'partners': Partners.objects.all(),
+        'services': ServiceTypes.objects.all(),
     }
     for item in context['possibilities']:
         print(item.image.width, item.image.height)
